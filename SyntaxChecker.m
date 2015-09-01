@@ -26,11 +26,11 @@ BOOL validateSyntax(NSString * syntax) {
             if (![[openersAndCloserMapping objectForKey:lastOpener] isEqualToString:character]  ) {
                 return false;
             } else {
-                [stack removeObject:lastOpener];
+                //remove last object = pop
+                [stack removeObjectAtIndex:[stack count]-1];
             }
         }
-        printList(stack);
     }
-
+    //if every openers match closers, the stack should be empty 
     return ([stack count] == 0);
 }
